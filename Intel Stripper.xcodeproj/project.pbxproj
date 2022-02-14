@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E26C15327BA823000FC658B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E05B727BA3B9B006BC722 /* Assets.xcassets */; };
 		7E4E05B427BA3B9A006BC722 /* Intel_StripperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05B327BA3B9A006BC722 /* Intel_StripperApp.swift */; };
 		7E4E05B627BA3B9A006BC722 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05B527BA3B9A006BC722 /* ContentView.swift */; };
-		7E4E05B827BA3B9B006BC722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E05B727BA3B9B006BC722 /* Assets.xcassets */; };
-		7E4E05BB27BA3B9B006BC722 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E05BA27BA3B9B006BC722 /* Preview Assets.xcassets */; };
 		7E4E05C627BA3B9B006BC722 /* Intel_StripperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05C527BA3B9B006BC722 /* Intel_StripperTests.swift */; };
 		7E4E05D027BA3B9B006BC722 /* Intel_StripperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05CF27BA3B9B006BC722 /* Intel_StripperUITests.swift */; };
 		7E4E05D227BA3B9B006BC722 /* Intel_StripperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05D127BA3B9B006BC722 /* Intel_StripperUITestsLaunchTests.swift */; };
@@ -214,7 +213,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 7E4E05A727BA3B9A006BC722;
 			productRefGroup = 7E4E05B127BA3B9A006BC722 /* Products */;
@@ -233,8 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E4E05BB27BA3B9B006BC722 /* Preview Assets.xcassets in Resources */,
-				7E4E05B827BA3B9B006BC722 /* Assets.xcassets in Resources */,
+				7E26C15327BA823000FC658B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,21 +415,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "Intel Stripper/Intel_Stripper.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Intel Stripper/Preview Content\"";
 				DEVELOPMENT_TEAM = 3CF49YC524;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "Intel-Stripper-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© Ubsefor 2022";
+				INFOPLIST_KEY_NSMainNibFile = SwiftUI;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ubsefor.Intel-Stripper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -446,21 +450,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "Intel Stripper/Intel_Stripper.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Intel Stripper/Preview Content\"";
 				DEVELOPMENT_TEAM = 3CF49YC524;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "Intel-Stripper-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© Ubsefor 2022";
+				INFOPLIST_KEY_NSMainNibFile = SwiftUI;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ubsefor.Intel-Stripper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
