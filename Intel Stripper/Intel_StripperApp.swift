@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import Foundation
+import AppKit
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+  func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    return true
+  }
+}
 
 @main
 struct Intel_StripperApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+  }
 }

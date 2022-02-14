@@ -34,7 +34,7 @@ func showOpenPanel() -> URL? {
   openPanel.canChooseDirectories = false
   openPanel.canChooseFiles = true
   openPanel.directoryURL = URL(fileURLWithPath: "/Applications/")
-  openPanel.prompt = "Select Universal Application"
+  openPanel.prompt = "Select Application"
   let response = openPanel.runModal()
   return response == .OK ? openPanel.url : nil
 }
@@ -53,38 +53,44 @@ struct ContentView: View {
 
       let destinationURL = showOpenPanel()?.absoluteURL
 
-      print(destinationURL?.path as Any)
-      let stringPath = destinationURL?.path
-      let appName = (stringPath! as NSString).lastPathComponent
-      print("App Name: ", appName)
+      if destinationURL != nil {
+        print(destinationURL?.path as Any)
+        let stringPath = destinationURL?.path
+        let appName = (stringPath! as NSString).lastPathComponent
+        print("App Name: ", appName)
 
-      var temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        var temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
 
-      do {
-        temporaryDirectoryURL = try FileManager.default.url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: destinationURL, create: true)
-      } catch {
+        do {
+          temporaryDirectoryURL = try FileManager.default.url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: destinationURL, create: true)
+        } catch {
 
+        }
+
+        let temporaryFileURL =
+        temporaryDirectoryURL.appendingPathComponent(appName)
+        print(temporaryFileURL.path)
+
+        print( shell("/usr/bin/ditto --rsrc --arch arm64 " + "\"" + stringPath! + "\" " + "\"" + temporaryFileURL.path + "\"") )
+
+        print( shell("sudo rm -rf " + "\"" + stringPath! + "\"") )
+
+        do {
+          try FileManager.default.moveItem(at: temporaryFileURL, to: destinationURL!)
+          try FileManager.default.removeItem(at: temporaryDirectoryURL)
+        } catch { print ("replace error") }
+      } else {
+        exit(0)
       }
-
-      let temporaryFileURL =
-      temporaryDirectoryURL.appendingPathComponent(appName)
-      print(temporaryFileURL.path)
-
-      print( shell("/usr/bin/ditto --rsrc --arch arm64 " + "\"" + stringPath! + "\" " + "\"" + temporaryFileURL.path + "\"") )
-
-      print( shell("sudo rm -rf " + "\"" + stringPath! + "\"") )
-
-      do {
-        try FileManager.default.moveItem(at: temporaryFileURL, to: destinationURL!)
-        // try FileManager.default.removeItem(at: temporaryFileURL)
-      } catch { print ("replace error") }
-
 
     }) {
       Text("Select Application")
     }
-    .frame(alignment: .center)
+    .frame(minHeight: 10, alignment: .center)
     .padding(10.0)
+
+    Spacer()
+      .padding(1)
   }
 
 }
@@ -92,5 +98,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+      .previewDisplayName("Button")
   }
 }
